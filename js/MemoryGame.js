@@ -22,31 +22,32 @@ var yaSeleccionado;
 
 
 function seleccionar(x) {
-	//Roto la tarjeta seleccionada
-	x.style.transform = 'rotateY(180deg)';
-	//Pregunto si ya hay un elemento seleccionado
-	if (yaHaySeleccionado) {
-		//Si lo hay, lo comparo con el que tengo seleccionado ahora mismo
-		if (x.querySelector('img').src == yaSeleccionado.querySelector('img').src) {
-			seleccionCorrecta(x, yaSeleccionado);
+	if (x.style.transform != 'rotateY(180deg)') {
+		//Muestro la imagen de la tarjeta seleccionada
+		x.style.transform = 'rotateY(180deg)';
+		//Pregunto si ya hay un elemento seleccionado
+		if (yaHaySeleccionado) {
+			//Si lo hay, lo comparo con el que tengo seleccionado ahora mismo
+			if (x.querySelector('img').src == yaSeleccionado.querySelector('img').src) {
+				seleccionCorrecta(x, yaSeleccionado);
+			} else {
+				seleccionIncorrecta(x, yaSeleccionado);
+			}
+			yaHaySeleccionado = false;
 		} else {
-			seleccionIncorrecta(x, yaSeleccionado);
+			yaSeleccionado = x;
+			yaHaySeleccionado = true;
 		}
-		yaHaySeleccionado = false;
-	} else {
-		yaSeleccionado = x;
-		yaHaySeleccionado = true;
 	}
 }
 
+
 function seleccionCorrecta(x, yaSeleccionado) {
-	alert('Correcto!');
-	x.style.transform = 'rotateY(0deg)';
-	yaSeleccionado.style.transform = 'rotateY(0deg)';
+	alert('Bien!!');
 }
 
 function seleccionIncorrecta(x, yaSeleccionado) {
 	alert(':(');
-	x.style.transform = 'rotateY(0deg)';
 	yaSeleccionado.style.transform = 'rotateY(0deg)';
+	x.style.transform = 'rotateY(0deg)';
 }

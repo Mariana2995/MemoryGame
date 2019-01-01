@@ -18,6 +18,12 @@ body {
 	border-radius: 5%;
 }
 
+@media all and (max-width: 500px) {
+.tablero {
+	width: 100%;
+  }
+}
+
 .tarjeta {
 	background-color: transparent;
 	width: 150px;
@@ -63,4 +69,20 @@ body {
 img {
 	width: 150px;
 	height: auto;
+}
+
+.girar {
+    animation-name: mostrar;
+    animation-duration: 2s; 
+    animation-iteration-count: 1;
+}
+
+
+@keyframes mostrar {
+    20% {
+    transform = 'rotateY(180deg)';
+    }
+    100% {
+    transform = 'rotateY(0deg)';
+    }
 }
