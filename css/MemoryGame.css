@@ -19,9 +19,22 @@ body {
 }
 
 @media all and (max-width: 500px) {
-.tablero {
-	width: 100%;
-  }
+	.tablero {
+		width: 100%;
+	}
+	.fila {
+		display: flex;
+		flex-direction: row;
+		width: 95%;
+		margin: 0px 3%;
+	}
+	.tablero {
+		display: flex;
+		flex-direction: column;
+	}
+	.tarjeta {
+		width: 25%;
+	}
 }
 
 .tarjeta {
@@ -54,21 +67,19 @@ body {
 /* Style the frente side (fallfondo if image is missing) */
 .tarjeta-frente {
 	background-color: dodgerblue;
-	color: black;
-	width:150px;
-	height:150px;
+	width:100%;
+	height:100%;
 }
 
 /* Style the fondo side */
 .tarjeta-fondo {
 	background-color: #ff7675;
-	color: white;
 	transform: rotateY(180deg);
 }
 
 img {
-	width: 150px;
-	height: auto;
+	width: 100%;
+	height: 100%;
 }
 
 .girar {
@@ -79,10 +90,37 @@ img {
 
 
 @keyframes mostrar {
+	0% {
+      -moz-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+    }
     20% {
-    transform = 'rotateY(180deg)';
+      -moz-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+      transform: rotateY(180deg);
     }
     100% {
-    transform = 'rotateY(0deg)';
+      -moz-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);    	
+    }
+}
+
+@keyframes mostrarOtro {
+	0% {
+      -moz-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+    }
+    20% {
+      -moz-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+    }
+    100% {
+      -moz-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);    	
     }
 }

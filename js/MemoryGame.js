@@ -1,5 +1,4 @@
 function cargarDatos() {
-	alert('HOLA');
 	var imagenes = ['besito.png', 'em.png', 'guino.jpeg', 'lengua.png', 'pensando.png', 'sorprendido.jpg', 'besito.png', 'em.png', 'guino.jpeg', 'lengua.png', 'pensando.png', 'sorprendido.jpg'];
 	imagenes = imagenes.sort(function() {return Math.random() - 0.5});
 	imagenuno.setAttribute('src', imagenes[0]);
@@ -22,6 +21,7 @@ var yaSeleccionado;
 
 
 function seleccionar(x) {
+	//Si ese elemento no está ya rotado
 	if (x.style.transform != 'rotateY(180deg)') {
 		//Muestro la imagen de la tarjeta seleccionada
 		x.style.transform = 'rotateY(180deg)';
@@ -47,7 +47,16 @@ function seleccionCorrecta(x, yaSeleccionado) {
 }
 
 function seleccionIncorrecta(x, yaSeleccionado) {
-	alert(':(');
+	girar(x);
+	girarOtro(yaSeleccionado);
 	yaSeleccionado.style.transform = 'rotateY(0deg)';
 	x.style.transform = 'rotateY(0deg)';
+}
+
+function girar(x) {
+	x.style.animation = "mostrar 4s 1";
+}
+
+function girarOtro(x) {
+	x.style.animation = "mostrarOtro 4s 1";
 }
